@@ -2,27 +2,32 @@
 <html>
 <link rel="stylesheet" href="scheme.css">
 
+
 <head>
-  <div class="topnav">
-  <a  href="index.html">Home</a>
-  <a class="active" href="projects.html">Projects</a>
-  <a href="about-me.html">About Me</a>
-  </div>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
+<!--Navigation bar-->
+<div id="nav-placeholder">
+
+</div>
+
+<!--end of Navigation bar-->
 
 <h1>Welcome to my website</h1>
 
 <p>My first paragraph.</p>
 
-<div id="text"></div>
+<div id="text">this should change</div>
 
 
 </body>
 
 
 <script>
-  document.getElementById("text").innerHTML = "Text added by JavaScript code";
+  $(function () {
+    $("#nav-placeholder").load("navbar.html");
+  });
 </script>
 </html>
