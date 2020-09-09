@@ -26,6 +26,6 @@
   color: white;
 }
 
-.head {
-  padding: 0px 0px 0px 0px;
+.header {
+  padding: 0px 0px 0px 0px; !important;
 }
