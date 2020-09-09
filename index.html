@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="scheme.css">
-
+<title>Home</title>
 
 <head>
-    <title>Home</title>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("navbar.html");
+        });
+    </script>
 </head>
 
 <body>
@@ -15,16 +19,12 @@
 
 <p>My first paragraph.</p>
 
-<div id = "test">no</div>
-
+<p>
+<div id="test">no</div>
+</p>
 
 
 </body>
 
 
-<script>
-  $(function () {
-    $("#nav-placeholder").load("navbar.html");
-  });
-</script>
 </html>
