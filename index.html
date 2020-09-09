@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="scheme.css">
 
 <head>
-  <link rel="stylesheet" href="scheme.css">
+  <div class="topnav">
+  <a  href="index.html">Home</a>
+  <a class="active" href="projects.html">Projects</a>
+  <a href="about-me.html">About Me</a>
+  </div>
 </head>
-
-<div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#Projects">Projects</a>
-  <a href="#AboutMe">About Me</a>
-</div>
-
 
 <body>
 
@@ -18,5 +16,13 @@
 
 <p>My first paragraph.</p>
 
+<div id="text"></div>
+
+
 </body>
+
+
+<script>
+  document.getElementById("text").innerHTML = "Text added by JavaScript code";
+</script>
 </html>

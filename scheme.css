@@ -16,7 +16,7 @@
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #7c43bd;
   color: white;
 }
 
@@ -24,4 +24,8 @@
 .topnav a.active {
   background-color: #7c43bd;
   color: white;
+}
+
+.head {
+  padding: 0px 0px 0px 0px;
 }
