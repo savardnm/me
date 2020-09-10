@@ -1,0 +1,63 @@
+.thumbnail {
+    width: 300px;
+    height: 300px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.thumbnail:hover{
+    box-shadow: 0px 0px 24px black;
+}
+
+.banner {
+    background-color: #03a9f4;
+    color: white;
+    padding: 8px;
+
+    position: absolute;
+    bottom: 0px;
+
+    width: 300px;
+    height: 50px;
+
+
+
+    font-family: Verdana;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+
+.tint {
+    background-color: #ffffff00;
+    color: white;
+
+    position: absolute;
+    top: 0px;
+
+    width: 300px;
+    height: 250px;
+
+
+
+    font-family: Verdana;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+
+}
+
+.thumbnail:hover .banner{
+    background-color: #67daff;
+
+}
+
+.thumbnail:hover .tint{
+    background-color: #ffffff11;
+}
+
+
+
