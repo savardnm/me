@@ -1,23 +1,13 @@
 console.log("loading projects");
 
-let projects = ["test-project", "ya", "money"];
 const tileSize = 300;
 
 var container = document.getElementById("container")
 var rows = [document.createElement("div")];
 
-
-for (var i = 0; i < projects.length; i++) {
-    console.log(projects[i]);
-
-    console.log(projects[i]);
-    var it = createProjecTile(projects[i]);
-    container.append(it)
-
-    console.log("succ");
-
-}
-
+projects.forEach(function (project, index) {
+    container.append(createProjecTile(project.name))
+});
 
 function createProjecTile(name) {
 
