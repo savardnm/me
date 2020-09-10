@@ -18,14 +18,11 @@
 .banner {
     background-color: #03a9f4;
     color: white;
-    padding: 8px;
-    word-wrap: break-spaces;
 
     position: absolute;
     bottom: 0px;
-
+    min-height: 50px;
     width: 300px;
-    height: 50px;
 
 
 
@@ -33,6 +30,14 @@
     font-size: 18px;
     text-align: center;
     vertical-align: middle;
+}
+
+.innerBanner{
+
+    text-align: center;
+    vertical-align: middle;
+    
+    padding: 8px 50px;
 }
 
 

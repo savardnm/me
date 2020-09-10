@@ -11,21 +11,25 @@ projects.forEach(function (project, index) {
 
 function createProjecTile(folder, name) {
 
-    var tile = document.createElement("div");
+    var tile = document.createElement("div");   //outer tile (300x300 div)
     tile.className = "tile";
 
-    var link = document.createElement("a");
+    var link = document.createElement("a");     //link to target page
     link.href = "index.html";
     tile.append(link);
 
-    var tint = document.createElement("div");
+    var tint = document.createElement("div");   //hover-tint
     tint.className = "tint";
     link.append(tint);
 
-    var banner = document.createElement("div");
+    var banner = document.createElement("div"); //banner
     banner.className = "banner";
-    banner.textContent = name;
     link.append(banner);
+
+    var innerBanner = document.createElement("div"); //banner
+    innerBanner.className = "innerBanner";
+    innerBanner.textContent = name;
+    banner.append(innerBanner);
 
     let path = "projects/" + folder + "/cover-image";
 
