@@ -19,6 +19,7 @@
     background-color: #03a9f4;
     color: white;
     padding: 8px;
+    word-wrap: break-spaces;
 
     position: absolute;
     bottom: 0px;
@@ -55,6 +56,11 @@
 
 }
 
+.thumbnail{
+    position: relative;
+    bottom: 25px;
+    z-index: -1;
+}
 
 .tile:hover .banner{
     background-color: #67daff;
