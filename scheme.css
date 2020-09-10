@@ -32,9 +32,6 @@
     color: white;
     font-family: Verdana;
 
-  border: solid #00000000;
-  border-left: #12005eff;
-  border-width: 0 1px;
 
     vertical-align: middle;
 }
@@ -49,6 +46,110 @@
 .topnav a.active {
     background-color: #12005e;
 }
+
+.sidenav {
+
+    background-color: #6ec6ff;
+    overflow: hidden;
+
+    position: fixed;
+    float: left;
+    height: 100%;
+    width: 310px;
+
+
+    top: 0px;
+    left: 0px;
+
+    z-index: 99;
+
+    box-shadow: 0px 0px 8px #000000cc;
+
+    vertical-align: middle;
+
+}
+
+.sidenav a{
+    float: left;
+    text-align: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: black;
+    font-family: Verdana;
+
+
+    vertical-align: middle;
+}
+
+.sidenav a:hover{
+    background-color: #2196f3;
+    color: white;
+
+
+    transition:0.15s;
+}
+
+.sidenav .search-container {
+    float: top;
+    height:35px;
+    margin: 100px 32px 32px;
+    position: relative;
+    transition: .1s;
+}
+
+
+.sidenav .search-container:hover{
+    box-shadow: 0px 0px 6px #0008;
+    transition: .1s;
+}
+
+.sidenav input[type=text] {
+    float: left;
+    position: absolute;
+    top: 0px;
+    left:0px;
+    bottom: 0px;
+    padding: 6px;
+    font-size: 17px;
+    border: none;
+
+    outline: none;
+}
+
+.sidenav input[type=text]:focus{
+    box-shadow: 0px 0px 12px #000c;
+    transition: .1s;
+}
+
+.sidenav .search-container button:hover{
+    box-shadow: 0px 0px 6px #0008;
+    transition: 0.1s;
+}
+
+
+.sidenav .search-container button {
+    float: top;
+    position: absolute;
+    top: 0px;
+    right:0px;
+    bottom: 0px;
+    padding: 6px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+
+    outline: none;
+}
+
+
+.sidenav .search-container button:active {
+    box-shadow: none;
+    background-color: #ccc;
+    transition: 0.1s;
+}
+
 
 .divider {
     border: 2px #000;

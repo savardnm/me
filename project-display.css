@@ -11,12 +11,12 @@
 }
 
 .tile:hover{
-    box-shadow: 0px 0px 24px black;
+    box-shadow: 0px 0px 16px #000000cc;
     transition: 0.1s;
 }
 
 .banner {
-    background-color: #03a9f4;
+    background-color: #2196f3;
     color: white;
 
     position: absolute;
@@ -68,13 +68,14 @@
 }
 
 .tile:hover .banner{
-    background-color: #67daff;
+    background-color: #6ec6ff;
+    color: black;
     transition: 0.2s;
 
 }
 
 .tile:hover .tint{
-    background-color: #ffffff20;
+    background-color: #ffffff30;
 }
 
 
