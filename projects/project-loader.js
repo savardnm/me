@@ -10,9 +10,6 @@ var rows = [document.createElement("div")];
 for (var i = 0; i < projects.length; i++) {
     console.log(projects[i]);
 
-    let columns = Math.round(screen.width / tileSize);
-
-
     console.log(projects[i]);
     var it = createProjecTile(projects[i]);
     container.append(it)
@@ -55,17 +52,6 @@ function createProjecTile(name) {
 
 }
 
-/*
-<div class="thumbnail" href="index.html", style="background-image: url(projects/test-project/cover-image.png);">
-    <a href="index.html">
-
-        <div class=tint></div>
-        <div class=banner></div>
-        <img src="projects/test-project/cover-image">
-    </a>
-</div>
-
- */
 
 
 
