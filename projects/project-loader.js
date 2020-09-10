@@ -1,22 +1,20 @@
 console.log("loading projects");
 
-let projects = ["test-project"];
-const gridSize = 300;
+let projects = ["test-project", "ya", "money"];
+const tileSize = 300;
 
 var container = document.getElementById("container")
 var rows = [document.createElement("div")];
 
 
-for (var i =0; i < projects.length; i++){
+for (var i = 0; i < projects.length; i++) {
     console.log(projects[i]);
 
-    let columns = Math.round(screen.width / gridSize);
+    let columns = Math.round(screen.width / tileSize);
 
-    if(i = columns){
 
-    }
-
-    var it = createProjecTile("test-project");
+    console.log(projects[i]);
+    var it = createProjecTile(projects[i]);
     container.append(it)
 
     console.log("succ");
@@ -26,27 +24,34 @@ for (var i =0; i < projects.length; i++){
 
 function createProjecTile(name) {
 
-    var thumbnail = document.createElement("div");
-    thumbnail.className = "thumbnail";
+    var tile = document.createElement("div");
+    tile.className = "tile";
 
-    var link = document.createElement("a")
+    var link = document.createElement("a");
     link.href = "index.html";
-    thumbnail.append(link);
+    tile.append(link);
 
     var tint = document.createElement("div");
     tint.className = "tint";
     link.append(tint);
 
     var banner = document.createElement("div");
-    tint.className = "banner";
+    banner.className = "banner";
     link.append(banner);
 
-    var image = document.createElement("img")
-    image.src = "projects/" + name + "/cover-image.png";
-    link.append(image);
+    var thumbnail = document.createElement("img");
+    thumbnail.src = "projects/" + name + "/cover-image.png";
+    thumbnail.className = "thumbnail";
+    link.append(thumbnail);
     console.log("projects/" + name + "/cover-image.png");
 
-    return thumbnail;
+    if (thumbnail.width > thumbnail.height) {
+        thumbnail.height = tileSize;
+    } else {
+        thumbnail.width = tileSize;
+    }
+
+    return tile;
 
 }
 

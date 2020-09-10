@@ -1,13 +1,18 @@
-.thumbnail {
+.tile {
     width: 300px;
     height: 300px;
     border-radius: 16px;
     position: relative;
     overflow: hidden;
+
+    float: left;
+
+    margin: 16px;
 }
 
-.thumbnail:hover{
+.tile:hover{
     box-shadow: 0px 0px 24px black;
+    transition: 0.1s;
 }
 
 .banner {
@@ -27,21 +32,21 @@
     font-size: 18px;
     text-align: center;
     vertical-align: middle;
-
 }
 
 
 .tint {
+    display: block;
+
+
     background-color: #ffffff00;
     color: white;
 
     position: absolute;
     top: 0px;
-
-    width: 300px;
-    height: 250px;
-
-
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 
     font-family: Verdana;
     font-size: 18px;
@@ -50,13 +55,15 @@
 
 }
 
-.thumbnail:hover .banner{
+
+.tile:hover .banner{
     background-color: #67daff;
+    transition: 0.2s;
 
 }
 
-.thumbnail:hover .tint{
-    background-color: #ffffff11;
+.tile:hover .tint{
+    background-color: #ffffff20;
 }
 
 
