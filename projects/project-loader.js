@@ -92,7 +92,7 @@ function openProject(folder){
     container.style.display = "none";
 
     $(function () {
-        $("#project-placeholder").load(folder + "/project-page.html");
+        $("#project-placeholder").load("projects/" + folder + "/project-page.html");
     });
 
 
