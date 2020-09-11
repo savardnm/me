@@ -17,7 +17,8 @@ function createProjecTile(folder, name) {
     tile.className = "tile";
 
     var link = document.createElement("a");     //link to target page
-    link.href = "index.html";
+    //link.onclick = "openProject('test')";
+    link.href = 'javascript:openProject("' + folder + '")';
     tile.append(link);
 
     var tint = document.createElement("div");   //hover-tint
@@ -49,7 +50,6 @@ function createProjecTile(folder, name) {
 
     thumbnail.className = "thumbnail";
     link.append(thumbnail);
-    console.log("projects/" + folder + "/cover-image.png");
 
     if (thumbnail.width > thumbnail.height) {
         thumbnail.height = tileSize;
@@ -82,4 +82,18 @@ function compare(project1, project2, sortBy){
 }
 
 
+function openProject(folder){
+    console.log(folder)
 
+    let sidenav = document.getElementById("sidenav");
+    let container = document.getElementById("container");
+
+    sidenav.style.display = "none";
+    container.style.display = "none";
+
+    $(function () {
+        $("#project-placeholder").load(folder + "/project-page.html");
+    });
+
+
+}
