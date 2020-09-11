@@ -5,6 +5,8 @@ const tileSize = 300;
 var container = document.getElementById("container");
 var attempted = 0;
 
+var currTime = new Date();
+
 projects.forEach(function (project, index) {
     container.append(createProjecTile(project.folder, project.name))
 });
@@ -59,6 +61,25 @@ function createProjecTile(folder, name) {
 
 }
 
+function sort(sortBy, ascending) {
+    var sortedProjects = [];
+
+    projects.forEach(function (project, index) {
+
+
+    });
+}
+
+function compare(project1, project2, sortBy){
+    switch(sortBy){
+        case "date":
+            return project1.date.prototype.getTime() > project2.date.prototype.getTime();
+            break;
+        case "relevance":
+            return (project1.date.prototype.getTime())
+            break;
+    }
+}
 
 
 
