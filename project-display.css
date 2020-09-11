@@ -86,7 +86,7 @@ Project Pages*/
 
 
 .project-column {
-    background-color: white;
+    background-color: gray;
     max-width: 1000px;
     margin: auto;
     font-family: Verdana, sans-serif;
@@ -94,3 +94,48 @@ Project Pages*/
     float: top;
 }
 
+.ToC {
+    position: fixed;
+    left: 16px;
+    top: 16px;
+
+    background-color: #7c43bd;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.ToC a{
+    padding: 8px;
+    float: left;
+    font-family: Verdana, sans-serif;
+    color: white;
+
+    transition: 0.1s;
+}
+
+.ToC a:hover{
+    background-color: #4a148c;
+
+    transition: 0.15s;
+}
+
+.back {
+    background-color: #4a148c;
+    transition: 0.1s;
+    outline: none;
+    color: white;
+    border: 0px;
+
+    font-family: Verdana;
+    font-size: 20px;
+}
+
+.back:hover{
+    box-shadow: 0px 0px 4px black;
+    transition: 0.1s;
+}
+
+.back:active{
+    background-color: #12005e;
+    transition: 0.1s;
+}
