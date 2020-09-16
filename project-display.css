@@ -88,13 +88,14 @@ Project Pages*/
 .project-column {
     background-color: white;
     padding: 128px 32px;
-    max-width: 800px;
+    max-width: 700px;
     margin: auto;
     font-family: Verdana, sans-serif;
     text-align: center;
     float: top;
     box-shadow: 0px 0px 16px black;
 }
+
 
 .ToC {
     position: fixed;
@@ -104,7 +105,10 @@ Project Pages*/
     background-color: white;
     border-radius: 8px;
     padding: 8px;
+
+    box-shadow: 0px 0px 12px #000c;
 }
+
 
 .ToC a{
     padding: 8px;
@@ -175,4 +179,36 @@ font-weight: bold;
 
 body{
     margin: 0px;
+}
+
+
+
+@media screen and (max-width: 1280px) {
+    .ToC {
+        left: 0px;
+        top: 0px;
+        margin-top: auto;
+        right: 0;
+        background-color: #eee;
+        border-radius: 0px;
+    }
+    .ToC a{
+        float: top;
+    }
+    .ToC div{
+        position: relative;
+        border: 2px #cccccc
+    }
+    .subsection {
+        display: none;
+    }
+
+    .subsubsection{
+        display: none;
+    }
+
+    .project-column {
+        padding-top: 176px;
+    }
+
 }

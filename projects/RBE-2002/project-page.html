@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>RBE 2002</title>
+
     <div class="ToC">
         <div>
             <button class="back" onClick="window.location.reload();">Back</button>
@@ -38,132 +39,160 @@
         </div>
     </div>
 </head>
-<body >
+<body>
 <div style="background-color: #6ec5ff">
     <div class="project-column">
-        <h1>RBE 2002: Sensing</h1>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/AlAo_yeH6aM" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-        <h2 id="desc">Project Description</h2>
-        <p class=content>The goal of this project was to construct and program a robot to autonomously navigate the
-            city of "Gotham" to find Robin's "Distress Beacon", an IR Beacon displaying at a frequency of 1000kHz. The
-            challenge arises from the randomization of the field. First, the locations of buildings are randomized.
-            There
-            are a total of 3 buildings and 1 roadblock, which can be in any plot labeled within the grid. The location
-            of Robin is also
-            randomized, with two decoy beacons transmitting at 100Hz and 10000KHz.
-            <br><br>
-            <u>With these challenges we had to design a robot that could:</u><br><br>
-            1. navigate a city grid, keeping track of its locations to avoid buildings<br>
-            2. identify buildings and the specific IR frequency of Robin's device<br>
-            3. deploy a rescue mechanism to save Robin</p>
+        <div>
+            <h1>RBE 2002: Sensing</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/AlAo_yeH6aM" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            <h2 id="desc">Project Description</h2>
+            <p class=content>The goal of this project was to construct and program a robot to autonomously navigate the
+                city of "Gotham" to find Robin's "Distress Beacon", an IR Beacon displaying at a frequency of 1000kHz.
+                The
+                challenge arises from the randomization of the field. First, the locations of buildings are randomized.
+                There
+                are a total of 3 buildings and 1 roadblock, which can be in any plot labeled within the grid. The
+                location
+                of Robin is also
+                randomized, with two decoy beacons transmitting at 100Hz and 10000KHz.
+                <br><br>
+                <u>With these challenges we had to design a robot that could:</u><br><br>
+                1. navigate a city grid, keeping track of its locations to avoid buildings<br>
+                2. identify buildings and the specific IR frequency of Robin's device<br>
+                3. deploy a rescue mechanism to save Robin</p>
 
 
-        <h1 id="nav">Navigation</h1>
-        <p class="content">
-            Many systems need to work together in order to successfully navigate the city grid.
-            First, the robot must know its current location and rotation using forward kinematics.
-            Second, the robot must be able to move to a desired location through reverse kinematics.
-            Finally, the robot must have an internal logic to navigate the city through a search algorithm.
-        </p>
-        <img src="projects/RBE-2002/Field.png" class="fullpic" title="City Block our Robot will navigate">
-        <p class="label">Layout of the board used</p>
-        <h2 id="forward">Forward Kinematics</h2>
-        <p class="content">Forward kinematics is the process of inputing sensor data and using it to determine the
-            robot's current position and rotation.
-            To do this, we used a 9-DOF IMU and wheel encoders.</p>
-        <p class="content">The two sensors we had available were an IMU and a set of encoders on the wheels. The 9-DOF
-            IMU, with a 3- axis accelerometer, gyro, and
-            magnetometer The IMU allowed the robot to read data through I2C communications. This data gave
-            the robot an absolute heading. However, the magnetometer has a larger settling time for quick rotations,
-            making is less accurate after a quick turn.
-            The encoders gave us accurate relative wheel position data. This means that it was perfect for measuring for
-            quick turns, but is heavily affected by sensor drift.
-            <br><br>
-            We decided to integrate both
-            sensors through a complimentary
-            filter, with an alpha value favoring the encoder values. This filter allows the encoders to handle the delta
-            data, while using the IMU magnetometer data to account
-            for sensor drift within the encoders.</p>
-        <h2 id="reverse">Reverse Kinematics</h2>
-        <p class="content">
-            In order for our robot to traverse the city, a way calculate a motion path is needed. We used calculated
-            this through applying reverse kinematic equations to our differential drive robot. This calculation used the
-            known position of the chassis to create a goal heading and distance. The robot would use a PID control loop
-            to turn to the correct heading. Once facing its target, the robot would use another PID loop to drive the
-            correct distance. During this process, we used the forward kinematics process to measure the error,
-            correcting through the PID loops.
-        </p>
-        <h2 id="search">Search Algorithm</h2>
-        <p class="content">Once our low-level navigation tools were created, we could create a higher-level nagivation
-            logic. To control this, we used a Finite State Machine (FSM). The state machine would determine the robot's
-            next goal location based on the current objective.</p>
-        <img src="projects/RBE-2002/State-Machine.jpg" class="fullpic" title="State Machine Plan">
-        <p class="label">The planned FSM for our controller</p>
-        <p class="content">
-            Our FSM controlled the robot's destination. Within that process, a search algorithm was implemented to find
-            the shortest path. Since all links in the grid are equal, we decided to use a breadth-first search
-            algorithm. We ruled out a Dijkstra's algorithm because it would significantly complicate it without a large
-            benefit. The breadth-first algorithm calculated the shortest distance to the destination. This path would
-            be recalculated upon hitting walls and roadblocks. The search algorithm was implemented directly on the
-            embedded chip in C++.
-        </p>
-        <h1 id="signal">Signal Analysis</h1>
-        <h2 id="distance">Distance Sensors</h2>
-        <p class="content">For the robot to respond to its environment, we needed to implement a set of distance
-            sensors. For this, we used an ultrasonic sensor and 2 IR distance sensors.
-            <br/><br/>
-            The ultrasonic sensor was mounted to the front of the robot. It was used to detect walls and roadblocks in
-            its way. These functions allow the robot to sense and avoid obstacles in its path. The implement this
-            sensor, we needed to convert the time between pulses into the distance. We used the conversion rate from the
-            datasheet to transform the time into the usable distance measurement.
-            <br><br>
-            The IR distance sensors on the robot were mounted facing the two sides. These sensors were used to detect
-            passing
-            buildings. When a building was detected, the robot could record its position, to search for Robin. The
-            sensors input an analog voltage into the robot. We used an equation to transform this voltage into a usable
-            distance.
-        </p>
-        <h2 id="ir">IR Sensor </h2>
-        <img src="projects/RBE-2002/dampening.jpg" class="fullpic" title="Dampened Signal">
-        <p class="label">An image of the oscilloscope reading the input signal (yellow) and the dampened output signal (blue)</p>
-        <p class="content">
-            The custom sensor on our robot was an IR-receiving diode. This diode was used to pick up the oscillating IR
-            signal from the beacon. It used the diode to create an oscillating voltage, which was input into a custom
-            Band-pass filter circuit. This circuit filtered out the high and low frequency values. The circuit was
-            required to dampen the incorrect signals by a minimum of -3dB. This output frequency was then passed into an
-            accumulator circuit, using a capacitor and high-valued resistor to store voltage only when a non-damped
-            (1000kHz) signal was received. This sensor voltage was then input into the robot micro-controller. When
-            compared to a threshold value, the value would reveal if a beacon was detected.
-        </p>
-        <img src="projects/RBE-2002/Flow.png" class="fullpic">
-        <p class="label">The flow of signals from the IR input circuit</p>
+            <h1 id="nav">Navigation</h1>
+            <p class="content">
+                Many systems need to work together in order to successfully navigate the city grid.
+                First, the robot must know its current location and rotation using forward kinematics.
+                Second, the robot must be able to move to a desired location through reverse kinematics.
+                Finally, the robot must have an internal logic to navigate the city through a search algorithm.
+            </p>
+            <img src="projects/RBE-2002/Field.png" class="fullpic" title="City Block our Robot will navigate">
+            <p class="label">Layout of the board used</p>
+            <h2 id="forward">Forward Kinematics</h2>
+            <p class="content">Forward kinematics is the process of inputing sensor data and using it to determine the
+                robot's current position and rotation.
+                To do this, we used a 9-DOF IMU and wheel encoders.</p>
+            <p class="content">The two sensors we had available were an IMU and a set of encoders on the wheels. The
+                9-DOF
+                IMU, with a 3- axis accelerometer, gyro, and
+                magnetometer The IMU allowed the robot to read data through I2C communications. This data gave
+                the robot an absolute heading. However, the magnetometer has a larger settling time for quick rotations,
+                making is less accurate after a quick turn.
+                The encoders gave us accurate relative wheel position data. This means that it was perfect for measuring
+                for
+                quick turns, but is heavily affected by sensor drift.
+                <br><br>
+                We decided to integrate both
+                sensors through a complimentary
+                filter, with an alpha value favoring the encoder values. This filter allows the encoders to handle the
+                delta
+                data, while using the IMU magnetometer data to account
+                for sensor drift within the encoders.</p>
+            <h2 id="reverse">Reverse Kinematics</h2>
+            <p class="content">
+                In order for our robot to traverse the city, a way calculate a motion path is needed. We used calculated
+                this through applying reverse kinematic equations to our differential drive robot. This calculation used
+                the
+                known position of the chassis to create a goal heading and distance. The robot would use a PID control
+                loop
+                to turn to the correct heading. Once facing its target, the robot would use another PID loop to drive
+                the
+                correct distance. During this process, we used the forward kinematics process to measure the error,
+                correcting through the PID loops.
+            </p>
+            <h2 id="search">Search Algorithm</h2>
+            <p class="content">Once our low-level navigation tools were created, we could create a higher-level
+                nagivation
+                logic. To control this, we used a Finite State Machine (FSM). The state machine would determine the
+                robot's
+                next goal location based on the current objective.</p>
+            <img src="projects/RBE-2002/State-Machine.jpg" class="fullpic" title="State Machine Plan">
+            <p class="label">The planned FSM for our controller</p>
+            <p class="content">
+                Our FSM controlled the robot's destination. Within that process, a search algorithm was implemented to
+                find
+                the shortest path. Since all links in the grid are equal, we decided to use a breadth-first search
+                algorithm. We ruled out a Dijkstra's algorithm because it would significantly complicate it without a
+                large
+                benefit. The breadth-first algorithm calculated the shortest distance to the destination. This path
+                would
+                be recalculated upon hitting walls and roadblocks. The search algorithm was implemented directly on the
+                embedded chip in C++.
+            </p>
+            <h1 id="signal">Signal Analysis</h1>
+            <h2 id="distance">Distance Sensors</h2>
+            <p class="content">For the robot to respond to its environment, we needed to implement a set of distance
+                sensors. For this, we used an ultrasonic sensor and 2 IR distance sensors.
+                <br/><br/>
+                The ultrasonic sensor was mounted to the front of the robot. It was used to detect walls and roadblocks
+                in
+                its way. These functions allow the robot to sense and avoid obstacles in its path. The implement this
+                sensor, we needed to convert the time between pulses into the distance. We used the conversion rate from
+                the
+                datasheet to transform the time into the usable distance measurement.
+                <br><br>
+                The IR distance sensors on the robot were mounted facing the two sides. These sensors were used to
+                detect
+                passing
+                buildings. When a building was detected, the robot could record its position, to search for Robin. The
+                sensors input an analog voltage into the robot. We used an equation to transform this voltage into a
+                usable
+                distance.
+            </p>
+            <h2 id="ir">IR Sensor </h2>
+            <img src="projects/RBE-2002/dampening.jpg" class="fullpic" title="Dampened Signal">
+            <p class="label">An image of the oscilloscope reading the input signal (yellow) and the dampened output
+                signal (blue)</p>
+            <p class="content">
+                The custom sensor on our robot was an IR-receiving diode. This diode was used to pick up the oscillating
+                IR
+                signal from the beacon. It used the diode to create an oscillating voltage, which was input into a
+                custom
+                Band-pass filter circuit. This circuit filtered out the high and low frequency values. The circuit was
+                required to dampen the incorrect signals by a minimum of -3dB. This output frequency was then passed
+                into an
+                accumulator circuit, using a capacitor and high-valued resistor to store voltage only when a non-damped
+                (1000kHz) signal was received. This sensor voltage was then input into the robot micro-controller. When
+                compared to a threshold value, the value would reveal if a beacon was detected.
+            </p>
+            <img src="projects/RBE-2002/Flow.png" class="fullpic">
+            <p class="label">The flow of signals from the IR input circuit</p>
 
-        <p class="content">
-            Following the flow shown in the diagram above, a raw oscillating IR signal could be interpreted by a
-            microcontroller.
-        </p>
-        <h1 id="rescue">Rescue Mechanism</h1>
-        <img src="projects/RBE-2002/Scissor-Lift.png" title="Scissor lift mechanism" class="fullpic">
-        <p class="label">The model of the rescue mechanism in its stored and deployed states</p>
-        <p class="content">
-            The final step in the final project was creating a "Rescue Mechanism" to save robin from the tower. The
-            solution was open ended, allowing us to be creative with our solution. My group opted to use a "deployable
-            fire-escape" to save robin! This fire-escape was constructed as a scissor lift, which would be deployed from
-            the back of the robot when robin is found.
-            <br>
-            <br>
-            The system was limited to use a single actuator: a Pololu motor.
-            This meant that the scissor lift needed to deploy and detach from the body of the robot in a single motion.
-            This was accomplished by having an ejection pin with the correct length attached to the mobile base of the
-            lift. When the lift was deployed, as the mobile base moved toward the robot chassis, the ejector pin would
-            hit the base, pushing the lift off, as seen in the video below.
-        </p>
+            <p class="content">
+                Following the flow shown in the diagram above, a raw oscillating IR signal could be interpreted by a
+                microcontroller.
+            </p>
+            <h1 id="rescue">Rescue Mechanism</h1>
+            <img src="projects/RBE-2002/Scissor-Lift.png" title="Scissor lift mechanism" class="fullpic">
+            <p class="label">The model of the rescue mechanism in its stored and deployed states</p>
+            <p class="content">
+                The final step in the final project was creating a "Rescue Mechanism" to save robin from the tower. The
+                solution was open ended, allowing us to be creative with our solution. My group opted to use a
+                "deployable
+                fire-escape" to save robin! This fire-escape was constructed as a scissor lift, which would be deployed
+                from
+                the back of the robot when robin is found.
+                <br>
+                <br>
+                The system was limited to use a single actuator: a Pololu motor.
+                This meant that the scissor lift needed to deploy and detach from the body of the robot in a single
+                motion.
+                This was accomplished by having an ejection pin with the correct length attached to the mobile base of
+                the
+                lift. When the lift was deployed, as the mobile base moved toward the robot chassis, the ejector pin
+                would
+                hit the base, pushing the lift off, as seen in the video below.
+            </p>
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/yn5qMUZgN1g" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yn5qMUZgN1g" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
     </div>
 </div>
 </body>
