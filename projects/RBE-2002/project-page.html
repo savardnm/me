@@ -48,15 +48,14 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             <h2 id="desc">Project Description</h2>
-            <p class=content>The goal of this project was to construct and program a robot to autonomously navigate the
-                city of "Gotham" to find Robin's "Distress Beacon", an IR Beacon displaying at a frequency of 1000kHz.
-                The
-                challenge arises from the randomization of the field. First, the locations of buildings are randomized.
-                There
-                are a total of 3 buildings and 1 roadblock, which can be in any plot labeled within the grid. The
-                location
-                of Robin is also
-                randomized, with two decoy beacons transmitting at 100Hz and 10000KHz.
+            <p class=content>Robin has been captured! The boy wonder has been kidnapped and held hostage in one of the
+                buildings of Gotham city. The goal of this project was to construct and
+                program a robot to autonomously navigate the city of "Gotham" to find Robin's "Distress Beacon", an IR
+                Beacon displaying at a frequency of 1000kHz.
+                The main challenge is: the field is randomized before each attempt. First, the locations of buildings are
+                randomized. There are a total of 3 buildings and 1 roadblock, which can be in any plot labeled within
+                the grid. The location of Robin is also randomized, with two decoy beacons transmitting at 100Hz and
+                10000KHz.
                 <br><br>
                 <u>With these challenges we had to design a robot that could:</u><br><br>
                 1. navigate a city grid, keeping track of its locations to avoid buildings<br>
@@ -111,7 +110,7 @@
                 logic. To control this, we used a Finite State Machine (FSM). The state machine would determine the
                 robot's
                 next goal location based on the current objective.</p>
-            <img src="projects/RBE-2002/State-Machine.jpg" class="fullpic" title="State Machine Plan">
+            <img src="projects/RBE-2002/SM.png" class="fullpic" title="State Machine Plan">
             <p class="label">The planned FSM for our controller</p>
             <p class="content">
                 Our FSM controlled the robot's destination. Within that process, a search algorithm was implemented to
@@ -162,6 +161,8 @@
             </p>
             <img src="projects/RBE-2002/Flow.png" class="fullpic">
             <p class="label">The flow of signals from the IR input circuit</p>
+            <img src="projects/RBE-2002/circuit.png" class="fullpic" style="background-color: white">
+            <p class="label">The band-pass filter used</p>
 
             <p class="content">
                 Following the flow shown in the diagram above, a raw oscillating IR signal could be interpreted by a
@@ -188,6 +189,7 @@
                 would
                 hit the base, pushing the lift off, as seen in the video below.
             </p>
+            <img src="projects/RBE-2002/deploy.png" class="fullpic">
 
             <iframe width="560" height="315" src="https://www.youtube.com/embed/yn5qMUZgN1g" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
