@@ -4,7 +4,7 @@ var projects = [
         name: "Introduction to Robotics",
         desc: "An introduction to basic concepts of robotics from ME, CS, and ECE",
         date: new Date('2019-04-30T03:24:00'),
-        year: 1.5,
+        year: .5,
         keywords: "Intro,RBE,CS,ME,ECE",
     },
     two = {
@@ -36,7 +36,7 @@ var projects = [
         name: "Software Engineering",
         desc: "A term project following an Agile Scrum development cycle to create a final product showcased for sponsors",
         date: new Date('2020-02-22T03:24:00'),
-        year: 3.5,
+        year: 3.75,
         keywords: "CS,Java,Jpheonix,FXML,design,software,UI,UX,agile,scrum,team,Navigation,algorithm,database,SQL,master"
     }
 ]
