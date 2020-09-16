@@ -90,9 +90,6 @@ function compareDate(project1, project2) {
 }
 
 
-var yearweight = 0.33;
-var levelwight = 0.33;
-var keywordweight = 0.33;
 function compareRelevance(a, b) {
 
     let project1Val = calcRelevance(a);
@@ -105,10 +102,12 @@ function compareRelevance(a, b) {
     return Math.sign(project1Val - project2Val);
 }
 function calcRelevance(project){
+    var yearweight = 0.33;
+    var levelwight = 0.33;
+    var keywordweight = 0.33;
     let val = yearweight * (currTime.getFullYear() - project.date.getFullYear());
     val -= levelwight * project.year;
-    val -= keywordweight * (project.keywords.includes("CS") + project.keywords.includes("ECE") + project.keywords.includes("ME") + 2 * project.keywords.includes("RBE"))
-
+    val -= keywordweight * (project.keywords.includes("CS") + project.keywords.includes("ECE") + project.keywords.includes("ME") + 2 * project.keywords.includes("RBE"));
     return val;
 }
 
