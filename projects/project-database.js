@@ -38,6 +38,14 @@ var projects = [
         date: new Date('2020-02-22T03:24:00'),
         year: 3.75,
         keywords: "CS,Java,Jpheonix,FXML,design,software,UI,UX,agile,scrum,team,Navigation,algorithm,database,SQL,master"
+    },
+    six = {
+        folder: "WHOI",
+        name: "CAD Model Designer",
+        desc: "Working for the Woods Hole Oceanographic Institute (WHOI) making CAD models of piping systems",
+        date: new Date('2020-05-22T03:24:00'),
+        year: 3,
+        keywords: "CAD,Autodesk,Inventor,Modeling,ME,Rendering,CSWA,Detail,Work,Paid"
     }
 ]
 
