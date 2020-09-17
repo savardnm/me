@@ -14,7 +14,7 @@ var projects = [
         date: new Date('2019-10-11T03:24:00'),
         year: 2,
         keywords: "RBE,CS,ME,ECE,force,analysis,solidworks,solid-works,duck,PID"
-    },
+    },/*
     three = {
         folder: "RBE-2002",
         name: "Unified Robotics II: Sensing",
@@ -22,7 +22,7 @@ var projects = [
         date: new Date('2019-12-16T03:24:00'),
         year: 2.5,
         keywords: "RBE,CS,ME,ECE,sensing,PID,filter,kinematics,band-pass,electrical,analysis"
-    },
+    },*/
     four = {
         folder: "study@WPI",
         name: "Study @ WPI",
@@ -30,7 +30,7 @@ var projects = [
         date: new Date('2020-01-19T03:24:00'),
         year: 2.5,
         keywords: "CS,HTML,HTML5,javascript,css,website,github,hackathon,study,WPI"
-    },
+    },/*
     five = {
         folder: "CS-3733",
         name: "Software Engineering",
@@ -38,7 +38,7 @@ var projects = [
         date: new Date('2020-02-22T03:24:00'),
         year: 3.75,
         keywords: "CS,Java,Jpheonix,FXML,design,software,UI,UX,agile,scrum,team,Navigation,algorithm,database,SQL,master"
-    },
+    },*/
     six = {
         folder: "WHOI",
         name: "CAD Model Designer",

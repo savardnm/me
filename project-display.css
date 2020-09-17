@@ -94,6 +94,8 @@ Project Pages*/
     text-align: center;
     float: top;
     box-shadow: 0px 0px 16px black;
+    min-height:100vh;
+
 }
 
 
@@ -172,6 +174,12 @@ font-weight: bold;
     border-radius: 6px ;
     border: 2px #12005e;
     box-shadow: 0px 0px 4px #000c;
+}
+.toppic {
+    width: 100%;
+    margin-top: -96px;
+    padding: -16px;
+    border: 2px black;
 }
 
 .label {

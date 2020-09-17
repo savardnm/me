@@ -54,14 +54,16 @@ function createProjecTile(folder, name) {
     };
 
     thumbnail.className = "thumbnail";
-    link.append(thumbnail);
 
     if (thumbnail.width > thumbnail.height) {
         thumbnail.height = tileSize;
+        console.log(path + "wide");
     } else {
         thumbnail.width = tileSize;
+        console.log(path + "tall");
     }
 
+    link.append(thumbnail);
     return tile;
 
 }
