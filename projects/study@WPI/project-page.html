@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../../scheme.css">
+<link rel="stylesheet" href="../../project-display.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Study@WPI</title>
+
+    <div class="ToC">
+        <div>
+            <button class="back" onClick="window.location.reload();">Back</button>
+        </div>
+        <div>
+            <a href="#desc" class="section">Project Description</a>
+        </div>
+        <div>
+            <a href="#tools" class="section">Tools Used</a>
+        </div>
+    </div>
+</head>
+<body>
+<div style="background-color: #6ec5ff">
+    <div class="project-column">
+        <div>
+            <h1>Study@WPI: Hackathon 2020</h1>
+            <img src="projects/Study@WPI/search.png" class="fullpic">
+            <h2 id="desc">Project Description</h2>
+            <p class="content">Each year WPI hosts a 48-hour hackathon open to all students. For the 2020 hackathon, a
+                group of my friends and I decided to enter. At the time, study spaces were extremely hard to find on
+                campus. This made it hard to get work done between class because a lot of time would be spent moving to
+                different areas. There was no central location to search for all the locations. The only reservation
+                system, 25Live, was difficult to navigate and unreliable.
+                <br><br>
+                To solve this problem, my team decided to create a "study space finder" app for our campus. To simplify
+                production, we wanted to make it as a mobile-friendly web-application. Thus, Study@WPI was born.
+
+                <br><br>
+                The project can be found at:
+                <br>
+            </p>
+            <div>
+                <a href="https://savardnm.github.io/Hackathon2020">savardnm.github.io/Hackathon<br></a></div>
+            <div>
+                <p><br></p></div>
+            <img src="projects/Study@WPI/mobile.png" class="fullpic">
+            <p class="label">A screenshot of the mobile version</p>
+            <h2 id="tools">Tools Used</h2>
+            <h3>Code</h3>
+            <p class="content">
+                Our program was coded using HTML5 and JavaScript. The website was hosted on GitHub Pages. Since we did
+                not have access to a web server, we made it a passive website, which could be hosted on GitHub.
+            </p>
+            <h3>API</h3>
+            <p class="content">Our program interacted with the same API as 25Live to get reservation data for all the
+                rooms, from all buildings on campus. The program sorted through this data to find rooms without current
+                reservations. These open rooms can be found by pressing the "Study Now" Button.
+                <br><br>
+                The user can also select
+                a date/time they want to study later. This allows the student to plan the locations they can work on
+                campus ahead of time</p>
+            <img src="projects/Study@WPI/calendar.png" class="fullpic">
+            <p class="content">The website also provides links to the various reservation systems implemented by WPI for
+                individual locations. This includes: 25Live for rooms, LibCal for library suites, and Foisie-LibCal for
+                tech suites. </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

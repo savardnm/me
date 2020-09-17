@@ -32,7 +32,7 @@ var projects = [
         keywords: "CS,HTML,HTML5,javascript,css,website,github,hackathon,study,WPI"
     },
     five = {
-        folder: "CS3733",
+        folder: "CS-3733",
         name: "Software Engineering",
         desc: "A term project following an Agile Scrum development cycle to create a final product showcased for sponsors",
         date: new Date('2020-02-22T03:24:00'),
@@ -46,6 +46,14 @@ var projects = [
         date: new Date('2020-05-22T03:24:00'),
         year: 3,
         keywords: "CAD,Autodesk,Inventor,Modeling,ME,Rendering,CSWA,Detail,Work,Paid"
+    },
+    seven = {
+        folder: "Printer",
+        name: "3D Printer Design",
+        desc: "Creating my own 3D Printer from basic components",
+        date: new Date('2020-08-22T03:24:00'),
+        year: 3,
+        keywords: "CAD,ECE,ME,SolidWorks,Modeling,CSWA,Detail,Personal,prototyping,manufacturing,fabrication"
     }
 ]
 

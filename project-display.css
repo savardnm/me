@@ -138,7 +138,7 @@ Project Pages*/
 }
 
 .back:hover{
-    box-shadow: 0px 0px 8px white;
+    box-shadow: 0px 0px 8px black;
     transition: 0.1s;
 }
 
@@ -220,17 +220,22 @@ body{
     }
     .ToC a{
         float: top;
+        text-decoration: none;
+        text-underline: none;
     }
     .ToC a:hover{
         position: relative;
         background-color: #eee;
+        text-decoration: none;
     }
     .subsection {
         display: none;
+        text-decoration: none;
     }
 
     .subsubsection{
         display: none;
+        text-decoration: none;
     }
 
     .project-column {

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../../scheme.css">
+<link rel="stylesheet" href="../../project-display.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Intro to Robotics</title>
+
+    <div class="ToC">
+        <div>
+            <button class="back" onClick="window.location.reload();">Back</button>
+        </div>
+        <div>
+            <a href="#desc" class="section">Description</a>
+        </div>
+    </div>
+</head>
+<body>
+<div style="background-color: #6ec5ff">
+    <div class="project-column">
+        <div>
+            <h1>Introduction to Robotics</h1>
+            <img src="projects/RBE-1001/cover-image.jpg" class="fullpic">
+            <h2 id="desc">Project Description</h2>
+            <p class="content">Introduction to robotics was my first robotics class at WPI. In it, I learned the basics
+                of electrical, mechanical, and computer engineering concepts. The class concluded in a final challenge
+                using a robot constructed from VEX parts. This robot had to lift small wooden blocks into specific
+                shelves on the playing field. To accomplish this, my group used a telescoping elevator controlled by a
+                winch. The robot was equipped with a custom-circuit line follower constructed from photo-sensitive
+                resistors and op-amps acting as comparators.
+            </p>
+            <img src="projects/RBE-1001/field.jpg" class="fullpic">
+            <p class="label">The field used for the final challenge</p>
+            <h2>Programming</h2>
+            <p class="content">
+                The robot was programmed in C++ using the Arduino suite. The basics of analog and digital IO were used.
+            </p>
+            <h2>Mechanical Analysis</h2>
+            <p class="content">
+                The robot was analyzed mechanically to determine the gear ratio required to operate the motors at
+                optimal efficiency. The torque required to lift the winch with a wooden block was calculated to solve
+                for a winch barrel diameter.
+            </p>
+            <h2>Electrical Analysis</h2>
+            <p class="content">
+                The robot was equiped with a custom line-following sensor. This sensor used two photosensitive resistors
+                in voltage-dividers to supply an analog light reading from each side of the robot. The analog values
+                were passed into a simple PID controller to keep the robot centered on a white line.
+            </p>
+            <img src="projects/RBE-1001/bot.jpg" class="fullpic">
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../../scheme.css">
+<link rel="stylesheet" href="../../project-display.css">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Printer Design</title>
+
+    <div class="ToC">
+        <div>
+            <button class="back" onClick="window.location.reload();">Back</button>
+        </div>
+        <div>
+            <a href="#desc" class="section">Project Description</a>
+        </div>
+        <div>
+            <a href="#solidworks" class="section">SolidWorks</a>
+        </div>
+        <div>
+            <a href="#features" class="section">Features</a>
+        </div>
+            <a href="#frame" class="subsection">Frame&nbsp;&nbsp;&nbsp;&nbsp; </a>
+        <div>
+            <a href="#axes" class="subsection">Axes&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+        <div>
+            <a href="#board" class="subsection">Control Board</a>
+        </div>
+        <div>
+            <a href="#bed" class="subsection">Heated Bed</a>
+        </div>
+        <div>
+            <a href="#design" class="section">Iterative Design</a>
+        </div>
+    </div>
+</head>
+<body>
+<div style="background-color: #6ec5ff">
+    <div class="project-column">
+        <div>
+            <h1>3D Printer Design</h1>
+            <img src="projects/Printer/cover-image.jpg" class="fullpic">
+            <h2 id="desc">Project Description</h2>
+            <p class="content">
+                Ever since middle school, I've always wanted to build my own 3D Printer. I'll never forget learning
+                about them for the first time from my neighbor, who built one in his apartment. Since then, I've dreamed
+                of making my own. Now, I finally get to.
+                <br><br>
+                I worked more with 3D printers through high-school, modelling and printing my own joints, gears, and
+                other parts. My first project was creating a 3D-printed fan with a simple DC electric motor inside.
+            </p>
+            <h2 id="solidworks">SolidWorks</h2>
+            <p class="content">
+                I modelled all of the parts used in my assembly using SolidWorks. I used dimension specification from
+                online documentation. I created the design from scratch. I took inspiration from a couple of sources
+                including the Modix Big-60, the Ultimaker Pro, and the Prusa printer series. I wanted to make a
+                heavy-duty printer that could handle any print I could ever want.
+            </p>
+            <h2 id="features">Features</h2>
+            <h3 id="frame">Frame</h3>
+            <p class="content">
+                Due to the large size of the printer, I needed to use an aluminum extrusion frame. These pieces are used
+                to provide structure and prevent the acrylic from warping. The frame is enclosed in clear acrylic
+                sheets. These sheets we precision-cut using a laser cutter. This fabrication method allows me to
+                pre-center all precision mounting holes. This simplifies the construction because careful alignment is
+                ensured by the acrylic.
+                <br><br>
+                I also used a tooth-alignment system for the edges of the acrylic. Each pane has a negative of the
+                border of the adjacent panes. This allows the different sheets to mesh together. This increases strength
+                and simplifies construction. The specific design of the panes forces the frame to assembled accurately,
+                without the need of major adjustments.
+            </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JDtF70vFqKM" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            <h3 id="axes">XYZ Axes</h3>
+            <p class="content">
+                The printer uses a standard cartesian 3-axis printing design: a Z-axis controlled by the bed height and
+                an XY axis controlled by the gantry. The Z-motion is controlled by 2 motors, with a total of 4
+                lead-screws. This design was inspired by the Modix Big-60, which is capable of holding extremely heavy
+                prints. The XY motion is controlled by linear rails attached to timing belts.
+            </p>
+            <h3 id="board">Control Board</h3>
+            <p class="content">
+                The design is planned to use a Smoothie-Board V5 to control the motion of the printer. I chose this
+                board because it is a 32-bit processor. This makes it more responsive and allows the user to upload
+                configuration data without re-flashing the board. This simplifies the setup of the printer. It also
+                comes equipped with 5 stepper motor drivers, which matches the amount of motors required to move the
+                3-axes and extruder.
+            </p>
+            <h3 id="bed">Heated Bed</h3>
+            <p class="content">
+                When constructing the board, one requirement was a heated bed. I did this because I
+                wanted the printer to be capable of printing most materials. One specific material I wanted to print was
+                ABS.
+                This plastic does not adhere well to cold surfaces, so A heated bed opens up more possibilities for
+                printing materials.
+            </p>
+
+
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
