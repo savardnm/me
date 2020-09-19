@@ -6,9 +6,17 @@
     <meta charset="UTF-8">
     <title>3D Printer Design</title>
 
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../../project-navbar.html");
+        });
+    </script>
     <div class="ToC">
         <div>
-            <button class="back" onClick="window.location.reload();">Back</button>
+            <button class="back" onClick=" window.location.href = '../../projects.html'">Back</button>
         </div>
         <div>
             <a href="#desc" class="section">Project Description</a>
@@ -36,7 +44,7 @@
     <div class="project-column">
         <div>
             <h1>3D Printer Design</h1>
-            <img src="projects/Printer/cover-image.png" class="fullpic">
+            <img src="cover-image.png" class="fullpic">
             <h2 id="desc">Project Description</h2>
             <p class="content">
                 Ever since middle school, I've always wanted to build my own 3D Printer. I'll never forget learning

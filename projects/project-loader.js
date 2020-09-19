@@ -6,45 +6,85 @@ var container = document.getElementById("container");
 var attempted = 0;
 
 var currTime = new Date();
+var currSort;
 
+var select = document.getElementById("sortBy");
 
+let visibleProjects = [];
+let queryString = '';
 //initialize project display
-var visibleProjects = projects;
+refreshProjects();
 sortBy("relevance");
-visibleProjects.forEach(function (project, index) {
-    console.log("creating tile for" + project.name)
-    container.append(createProjecTile(project.folder, project.name))
+displayProjects();
+
+var searchbar = document.getElementById("searchbar");
+
+function refreshProjects() {
+    visibleProjects = [...projects];
+}
+
+function search() {
+    searchFor(searchbar.value);
+}
+
+function searchFor(query) {
+    queryString = query.toLowerCase();
+    refreshProjects();
+    sortProjects();
+    visibleProjects = visibleProjects.filter(inSearch);
+    displayProjects();
+}
+
+function inSearch(project) {
+    console.log("checking " + project.name + " for " + queryString);
+    return (project.name.toLowerCase().includes(queryString) || project.keywords.toLowerCase().includes(queryString) || project.desc.toLowerCase().includes(queryString));
+}
+
+
+searchbar.addEventListener("keydown", function (e) {
+    if (e.key === 'Enter') {  //checks whether the pressed key is "Enter"
+        search();
+    }
 });
+
+function displayProjects() {
+    container.innerHTML = '';
+    visibleProjects.forEach(function (project, index) {
+        // console.log("creating tile for" + project.name)
+        container.append(createProjecTile(project.folder, project.name))
+    });
+}
 
 function createProjecTile(folder, name) {
 
-    var tile = document.createElement("div");   //outer tile (300x300 div)
+    let tile = document.createElement("div");   //outer tile (300x300 div)
     tile.className = "tile";
 
-    var link = document.createElement("a");     //link to target page
+    let link = document.createElement("a");     //link to target page
     //link.onclick = "openProject('test')";
-    link.href = 'javascript:openProject("' + folder + '")';
+    link.href = 'projects/' + folder + '/project-page.html';
+    // link.href = 'javascript:openProject("' + folder + '")';
     tile.append(link);
 
-    var tint = document.createElement("div");   //hover-tint
+    let tint = document.createElement("div");   //hover-tint
     tint.className = "tint";
     link.append(tint);
 
-    var banner = document.createElement("div"); //banner
+    let banner = document.createElement("div"); //banner
     banner.className = "banner";
     link.append(banner);
 
-    var innerBanner = document.createElement("div"); //banner
+    let innerBanner = document.createElement("div"); //banner
     innerBanner.className = "innerBanner";
     innerBanner.textContent = name;
     banner.append(innerBanner);
 
     let path = "projects/" + folder + "/cover-image";
 
-    var thumbnail = document.createElement("img");
+    let thumbnail = document.createElement("img");
     thumbnail.src = path + ".png";
     thumbnail.onerror = function () { // when .png failed
-        if (attempted > 5) {  //if no cover image exists
+        if (attempted > 10) {  //if no cover image exists
             thumbnail.src = "projects/WPI_logo.png";
             attempted = 0;
             return;
@@ -55,39 +95,66 @@ function createProjecTile(folder, name) {
 
     thumbnail.className = "thumbnail";
 
-    if (thumbnail.width > thumbnail.height) {
-        thumbnail.height = tileSize;
-        console.log(path + "wide");
-    } else {
-        thumbnail.width = tileSize;
-        console.log(path + "tall");
-    }
 
     link.append(thumbnail);
+    if (thumbnail.width > thumbnail.height) {
+        thumbnail.height = tileSize;
+        // console.log(path + "wide");
+    } else {
+        thumbnail.width = tileSize;
+        // console.log(path + "tall");
+    }
     return tile;
 
 }
 
+
+function sortProjects() {
+
+    console.log("sorting projects")
+    if (currSort != select.value) { //if new value, display
+        console.log("sorting by: " + select.value);
+        sortBy(select.value);
+        displayProjects();
+    } else { //if already sorted, sort anyway because why not
+        sortBy(select.value);
+    }
+
+
+}
+
 function sortBy(sortBy) {
-    console.log(visibleProjects);
+    currSort = sortBy;
+    // console.log(visibleProjects);
+    console.log("sorting by: " + sortBy);
     switch (sortBy) {
         case "date":
-            console.log("sorting by: " + sortBy);
             visibleProjects = visibleProjects.sort(compareDate);
             break;
         case "relevance":
-            console.log("sorting by: " + sortBy);
             visibleProjects = visibleProjects.sort(compareRelevance);
+            break;
+        case "alphabet":
+            visibleProjects = visibleProjects.sort(compareAlphabet);
             break;
 
     }
-
-    console.log(visibleProjects);
 }
 
 function compareDate(project1, project2) {
 
-    return Math.sign(project1.date.getTime() - project2.date.getTime())
+    return -Math.sign(project1.date.getTime() - project2.date.getTime())
+
+}
+
+function compareAlphabet(a, b) {
+    if (a.name < b.name) {
+        return -1;
+    } else if (a.name > b.name) {
+        return 1
+    } else {
+        return 0;
+    }
 
 }
 
@@ -99,11 +166,12 @@ function compareRelevance(a, b) {
 
     let project2Val = calcRelevance(b);
 
-    console.log(a.name + ":" + project1Val + " vs " + b.name + ":" + project2Val);
+    // console.log(a.name + ":" + project1Val + " vs " + b.name + ":" + project2Val);
 
     return Math.sign(project1Val - project2Val);
 }
-function calcRelevance(project){
+
+function calcRelevance(project) {
     var yearweight = 0.25;
     var levelweight = 0.5;
     var keywordweight = 0.25;

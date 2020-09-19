@@ -17,12 +17,12 @@
 <body style="background-color: #fff">
 <div id="sidenav" class="sidenav">
     <div class="search-container">
-        <input type="text" placeholder="Search...">
-        <button type="submit"><i class="material-icons">search</i></button>
+        <input type="text" id="searchbar" placeholder="Search...">
+        <button type="submit" onclick="search()"><i class="material-icons">search</i></button>
     </div>
     <div class = "sidenav-item">
         Sort By:
-        <select name = "criteria">
+        <select id="sortBy" name = "criteria" onclick="sortProjects();">
             <option value="relevance">Relevance</option>
             <option value="date">Most Recent</option>
             <option value="alphabet">Alphabetical</option>

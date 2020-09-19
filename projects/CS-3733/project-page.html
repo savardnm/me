@@ -6,9 +6,17 @@
     <meta charset="UTF-8">
     <title>Software Engineering</title>
 
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../../project-navbar.html");
+        });
+    </script>
     <div class="ToC">
         <div>
-            <button class="back" onClick="window.location.reload();">Back</button>
+            <button class="back" onClick=" window.location.href = '../../projects.html'">Back</button>
         </div>
         <div>
             <a href="#desc" class="section">Project Description</a>
@@ -44,7 +52,7 @@
                 <a href="https://savardnm.github.io/Hackathon2020">savardnm.github.io/Hackathon<br></a></div>
             <div>
                 <p><br></p></div>
-            <img src="projects/Study@WPI/mobile.png" class="fullpic">
+            <img src="mobile.png" class="fullpic">
             <p class="label">A screenshot of the mobile version</p>
             <h2 id="tools">Tools Used</h2>
             <h3>Code</h3>
@@ -60,7 +68,7 @@
                 The user can also select
                 a date/time they want to study later. This allows the student to plan the locations they can work on
                 campus ahead of time</p>
-            <img src="projects/Study@WPI/calendar.png" class="fullpic">
+            <img src="/calendar.png" class="fullpic">
             <p class="content">The website also provides links to the various reservation systems implemented by WPI for
                 individual locations. This includes: 25Live for rooms, LibCal for library suites, and Foisie-LibCal for
                 tech suites. </p>

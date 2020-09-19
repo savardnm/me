@@ -6,9 +6,17 @@
     <meta charset="UTF-8">
     <title>Study@WPI</title>
 
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../../project-navbar.html");
+        });
+    </script>
     <div class="ToC">
         <div>
-            <button class="back" onClick="window.location.reload();">Back</button>
+            <button class="back" onClick=" window.location.href = '../../projects.html'">Back</button>
         </div>
         <div>
             <a href="#desc" class="section">Project Description</a>
@@ -23,7 +31,7 @@
     <div class="project-column">
         <div>
             <h1>Study@WPI: Hackathon 2020</h1>
-            <img src="projects/Study@WPI/search.png" class="fullpic">
+            <img src="search.png" class="fullpic">
             <h2 id="desc">Project Description</h2>
             <p class="content">Each year WPI hosts a 48-hour hackathon open to all students. For the 2020 hackathon, a
                 group of my friends and I decided to enter. At the time, study spaces were extremely hard to find on
@@ -42,7 +50,7 @@
                 <a href="https://savardnm.github.io/Hackathon2020">savardnm.github.io/Hackathon<br></a></div>
             <div>
                 <p><br></p></div>
-            <img src="projects/Study@WPI/mobile.png" class="fullpic">
+            <img src="mobile.png" class="fullpic">
             <p class="label">A screenshot of the mobile version</p>
             <h2 id="tools">Tools Used</h2>
             <h3>Code</h3>
@@ -58,7 +66,7 @@
                 The user can also select
                 a date/time they want to study later. This allows the student to plan the locations they can work on
                 campus ahead of time</p>
-            <img src="projects/Study@WPI/calendar.png" class="fullpic">
+            <img src="calendar.png" class="fullpic">
             <p class="content">The website also provides links to the various reservation systems implemented by WPI for
                 individual locations. This includes: 25Live for rooms, LibCal for library suites, and Foisie-LibCal for
                 tech suites. </p>

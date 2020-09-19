@@ -20,13 +20,12 @@ images = [
     "MixingTank-Detail.jpg",
     "Tank-Closed.jpg"
 ];
-var columns = [document.getElementById("c1"), document.getElementById("c2"), document.getElementById("c3")];
+const columns = [document.getElementById("c1"), document.getElementById("c2"), document.getElementById("c3")];
 for(var i = 0; i < images.length*3; i++){
     let col = columns[Math.floor(Math.random()*3)];
-    let path = "projects/WHOI/"+images[i%images.length];
-    console.log(col);
+    let path = ""+images[i%images.length];
+    console.log(path);
     let img = document.createElement("img");
     img.src = path;
-    console.log(img)
     col.appendChild(img)
 }

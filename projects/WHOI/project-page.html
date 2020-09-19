@@ -6,9 +6,23 @@
     <meta charset="UTF-8">
     <title>WHOI</title>
 
+    R
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../../project-navbar.html");
+        });
+    </script>
     <div class="ToC">
         <div>
-            <button class="back" onClick="window.location.reload();">Back</button>
+            <button class="back" onClick=" window.location.href = '../../projects.html'">Back</button>
+        </div>
+        <div>
+            <a class="section" href="#desc">Description</a>
+        </div>
+        <div>
+            <a class="section" href="#gallery">Gallery</a>
         </div>
     </div>
 </head>
@@ -16,12 +30,22 @@
 <div style="background-color: #6ec5ff">
     <div class="project-column">
         <div>
-            <p class="content">Over the summer in 2020, I started working with Woods Hole Oceanographic Institute (WHOI)
+            <h1 id="#desc">Description</h1>
+            <p class="content">Over the summer of 2020, I started working with Woods Hole Oceanographic Institute (WHOI)
                 by creating models, assemblies, and renders of piping systems. Models were made based on engineering
                 specifications and dimensions.
                 <br><br>
-                Here is a gallery of some of the models and images I created.
+                I created these models using Autodesk Inventor. I used Parametric modelling to generate families of
+                parts
+                using excel-driven dimensions. This allowed me to create many versions of a single part, without having
+                to re-model individual pieces. This workflow also allows me to make iterative changes to models and
+                assemblies, without creating new versions.
+                <br><br>
+                This page is a gallery of some of the models and images I created.
+
+                <br>
             </p>
+            <h2 id="gallery">Gallery</h2>
         </div>
         <div class="row">
             <div class="column" id="c1">
@@ -33,6 +57,6 @@
         </div>
     </div>
 </div>
-<script src="projects/WHOI/gallary.js"></script>
+<script src="gallary.js"></script>
 </body>
 </html>

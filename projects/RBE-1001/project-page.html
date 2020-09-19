@@ -3,12 +3,20 @@
 <link rel="stylesheet" href="../../scheme.css">
 <link rel="stylesheet" href="../../project-display.css">
 <head>
+
     <meta charset="UTF-8">
     <title>Intro to Robotics</title>
 
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <div id="nav-placeholder"></div>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("../../project-navbar.html");
+        });
+    </script>
     <div class="ToC">
         <div>
-            <button class="back" onClick="window.location.reload();">Back</button>
+            <button class="back" onClick=" window.location.href = '../../projects.html'">Back</button>
         </div>
         <div>
             <a href="#desc" class="section">Description</a>
@@ -29,7 +37,7 @@
     <div class="project-column">
         <div>
             <h1>Introduction to Robotics</h1>
-            <img src="projects/RBE-1001/cover-image.jpg" class="fullpic">
+            <img src="cover-image.jpg" class="fullpic">
             <h2 id="desc">Project Description</h2>
             <p class="content">Introduction to robotics was my first robotics class at WPI. In it, I learned the basics
                 of electrical, mechanical, and computer engineering concepts. The class concluded in a final challenge
@@ -38,7 +46,7 @@
                 winch. The robot was equipped with a custom-circuit line follower constructed from photo-sensitive
                 resistors and op-amps acting as comparators.
             </p>
-            <img src="projects/RBE-1001/field.jpg" class="fullpic">
+            <img src="field.jpg" class="fullpic">
             <p class="label">The field used for the final challenge</p>
             <h2 id="cs">Programming</h2>
             <p class="content">
@@ -56,7 +64,7 @@
                 in voltage-dividers to supply an analog light reading from each side of the robot. The analog values
                 were passed into a simple PID controller to keep the robot centered on a white line.
             </p>
-            <img src="projects/RBE-1001/bot.jpg" class="fullpic">
+            <img src="bot.jpg" class="fullpic">
         </div>
     </div>
 </div>
