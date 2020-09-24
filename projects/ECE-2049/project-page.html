@@ -14,12 +14,15 @@
             $("#nav-placeholder").load("../../project-navbar.html");
         });
     </script>
-">
+    <div class="ToC">
         <div>
             <button class="back" onClick=" window.location.href = '../../projects.html'">Back</button>
         </div>
         <div>
             <a href="#desc" class="section">Project Description</a>
+        </div>
+        <div>
+            <a href="#other" class="section">Other Projects</a>
         </div>
     </div>
 </head>
@@ -28,9 +31,32 @@
     <div class="project-column">
         <div>
             <h1>Embedded Systems Programming</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/gyJdwRL6kJU" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            <h2 id="desc">Project Description</h2>
             <p class="content">
-In embedded systems, we worked with
+                In embedded systems, we worked with a low-power microprocessor, the
+                <a href="https://www.ti.com/tool/MSP-EXP430FR2433">MSP430</a> to develop small programs in C. These
+                programs used a handful of features of the chip including:
+                Digital I/O, Timers, Interrupt Service Routines (ISRs), and ADC Analog Input. These features relied on
+                modifying the registers of the board to change pin modes, configure timers, and activate functions.
             </p>
+            <h2 id="other">Other Projects</h2>
+            <p class="content">
+                We made a couple of smaller projects on the MSP430 throughout the course:
+
+                <ol type="1" style="text-align: left;">
+                    <li>Space Invaders
+            <p>
+                This project introduced the use of digital I/O on the board. I used basic inputs from the keypad to play the 
+            </p>
+            </li>
+            <li>Digital Clock</li>
+            <li>Digital Thermometer</li>
+            </ol>
+            </p>
+
         </div>
     </div>
 </body>
