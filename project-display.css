@@ -190,9 +190,6 @@ Project Pages*/
     font-size: 12px;
 }
 
-body {
-    margin: 0px;
-}
 
 .row {
     display: flex;
@@ -218,7 +215,7 @@ body {
     margin-left: 10%;
     border: 0px #0000;
     text-align: left;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 tr:hover {
