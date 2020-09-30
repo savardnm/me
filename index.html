@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html style="overflow-x: hidden;">
 <link rel="stylesheet" href="scheme.css">
 <link rel="stylesheet" href="project-display.css">
+<link rel="stylesheet" href="home.css">
+<link href='https://fonts.googleapis.com/css?family=Cutive Mono' rel='stylesheet'>
 <title>Home</title>
 
 <head class="header">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" type="image/png" href="icons/icon2.png">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
         $(function () {
@@ -15,7 +19,49 @@
 
 <header id="nav-placeholder"></header>
 <body>
+<div class="main-container">
+    <div class="grey-accent"></div>
+    <div class="white-board"><p>Hello World</p>
+        <div class="blue-accent"></div>
+        <p>My Name is:</p>
+        <h1>Nathan Savar</h1>
+        <img src="icons/markers.png" class="markers">
+        <img src="icons/art.png" class="art">
+    </div>
+
+    <a href="https://linkedIn.com/in/nm-savard"> <img src="icons/arm.png" class="arm"></a>
+    <img src="icons/PC.png" class="PC">
+    <img src="icons/iron.png" class="iron">
+</div>
+<div>
+    <div class="shelf"></div>
+    <div class="low-container">
+        <a href="#a" onclick="goto('showcase')">
+            <div class="circle" id="animated"><i class="material-icons"
+                                                 style="font-size:70px; -webkit-transform: rotate(180deg);">eject</i>
+            </div>
+        </a>
+
+        <div id="showcase">
+            <h2 style="color: white; margin: 0">My Projects</h2>
+            <div class="project-showcase" id="case">
+
+            </div>
+            <div class="selector" id="selector">
+                <a href='#a' id="left" onclick="nav(-1)">
+                    <i class="material-icons" style="font-size:50px;">arrow_left</i>
+                </a>
+                <a href="projects.html">See More</a>
+                <a href='#a'  id="right"  onclick="nav(1)">
+                    <i class="material-icons" style="font-size:50px;">arrow_right</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
-
+<script src="projects/project-database.js"></script>
+<script src="projects/project-loader.js"></script>
+<script src="home.js"></script>
 </html>
