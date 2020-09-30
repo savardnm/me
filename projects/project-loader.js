@@ -15,7 +15,6 @@ let queryString = '';
 //initialize project display
 refreshProjects();
 sortBy("relevance");
-displayProjects();
 
 var searchbar = document.getElementById("searchbar");
 
@@ -53,6 +52,13 @@ function displayProjects() {
         // console.log("creating tile for" + project.name)
         container.append(createProjecTile(project.folder, project.name))
     });
+}
+
+function createProjectSummary(project){
+    let div = document.createElement("div");
+    div.id = project.name;
+    div.innerHTML = project.desc;
+    return div;
 }
 
 function createProjecTile(folder, name) {
@@ -97,6 +103,14 @@ function createProjecTile(folder, name) {
 
 
     link.append(thumbnail);
+    if (thumbnail.width > thumbnail.height) {
+        thumbnail.height = tileSize;
+        // console.log(path + "wide");
+    } else {
+        thumbnail.width = tileSize;
+        // console.log(path + "tall");
+    }
+
     if (thumbnail.width > thumbnail.height) {
         thumbnail.height = tileSize;
         // console.log(path + "wide");
